@@ -3,7 +3,7 @@
 Shorten, Share, and Track—Your Complete Digital Toolkit  
 _A powerful, all-in-one solution for creating custom forms, shortening URLs, tracking real-time analytics, and building bio link pages._
 
-![UI Screenshot](./assets/ui-screenshot.png)
+![UI Screenshot](./assets/ui.png)
 
 ## Features
 
