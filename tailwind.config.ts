@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -57,18 +58,18 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "slide-left": {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(0)" },
+        "loop-scroll-right": {
+          from: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(0)" },
         },
-        "slide-right": {
-          "0%": { transform: "translateX(100%)" },
-          "100%": { transform: "translateX(0)" },
+        "loop-scroll-left": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
         },
       },
       animation: {
-        "slide-left": "slide-left 2s ease-in-out infinite alternate",
-        "slide-right": "slide-right 2s ease-in-out infinite alternate",
+        "loop-scroll-right": "loop-scroll-right 50s linear infinite",
+        "loop-scroll-left": "loop-scroll-left 50s linear infinite",
       },
     },
   },

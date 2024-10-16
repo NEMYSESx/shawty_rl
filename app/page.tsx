@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/accordion";
 import Footer from "@/components/landing-page/footer";
 import { Input } from "@/components/ui/input";
+import { accordionData } from "@/constant/landingPage";
+import { ScrollSection } from "@/components/landing-page/scroll-section";
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
@@ -164,86 +166,33 @@ export default function Home() {
           </div>
         </div>
       </div>
-
       <h1 className="text-6xl font-semibold mt-36">FAQ</h1>
       <h2 className="text-xl text-[#8B8B8B] mt-3">
         Got Questions? Check out our SaaS-tastic answers!
       </h2>
-
       <Accordion type="single" collapsible className="w-[1455px]">
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="text-3xl">
-            What can I do with this platform?
-          </AccordionTrigger>
-          <AccordionContent className="text-2xl text-[#8B8B8B]">
-            Our platform lets you create custom forms, shorten URLs, track
-            detailed analytics, and build bio link pages—all in one place.
-            It&apos;s designed to help you streamline your digital presence and
-            boost engagement with ease.
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-2">
-          <AccordionTrigger className="text-3xl">
-            Is there a free plan available?
-          </AccordionTrigger>
-          <AccordionContent className="text-2xl text-[#8B8B8B]">
-            Yes. It comes with default styles that matches the other
-            components&apos; aesthetic.
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-3">
-          <AccordionTrigger className="text-3xl">
-            How do I track the performance of my shortened URLs?
-          </AccordionTrigger>
-          <AccordionContent className="text-2xl text-[#8B8B8B]">
-            Yes. It&apos;s animated by default, but you can disable it if you
-            prefer.
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-4">
-          <AccordionTrigger className="text-3xl">
-            Can I create a custom bio link page for my social media profiles?
-          </AccordionTrigger>
-          <AccordionContent className="text-2xl text-[#8B8B8B]">
-            Yes. It&apos;s animated by default, but you can disable it if you
-            prefer.
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-5">
-          <AccordionTrigger className="text-3xl">
-            What payment methods do you accept?
-          </AccordionTrigger>
-          <AccordionContent className="text-2xl text-[#8B8B8B]">
-            Yes. It&apos;s animated by default, but you can disable it if you
-            prefer.
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-6">
-          <AccordionTrigger className="text-3xl">
-            Can I use my own custom domain for my bio link page?
-          </AccordionTrigger>
-          <AccordionContent className="text-2xl text-[#8B8B8B]">
-            Yes. It&apos;s animated by default, but you can disable it if you
-            prefer.
-          </AccordionContent>
-        </AccordionItem>
+        {accordionData.map(({ value, question, answer }) => (
+          <AccordionItem key={value} value={value}>
+            <AccordionTrigger className="text-3xl">{question}</AccordionTrigger>
+            <AccordionContent className="text-2xl text-[#8B8B8B]">
+              {answer}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
       </Accordion>
       <h1 className="text-6xl font-semibold mt-24">Wall of Love</h1>
       <h2 className="text-xl text-[#919191] font-semibold mt-3">
         Discover what our Happy users have to say
       </h2>
+      <div className="mt-12 flex flex-col space-y-16 w-[1455px]">
+        {/* Row 1: Scroll Left */}
+        <ScrollSection direction="left" />
 
-      <div className="mt-12 grid grid-cols-3 gap-8">
-        <div className="w-full h-48 bg-gray-200 rounded-xl animate-slide-left"></div>
-        <div className="w-full h-48 bg-gray-200 rounded-xl animate-slide-right"></div>
-        <div className="w-full h-48 bg-gray-200 rounded-xl animate-slide-left"></div>
-
-        <div className="w-full h-48 bg-gray-200 rounded-xl animate-slide-right"></div>
-        <div className="w-full h-48 bg-gray-200 rounded-xl animate-slide-left"></div>
-        <div className="w-full h-48 bg-gray-200 rounded-xl animate-slide-right"></div>
+        {/* Row 2: Scroll Right */}
+        <ScrollSection direction="right" />
       </div>
 
-      <div className="w-full h-[450px] bg-[#1E1E1E] flex flex-col items-center">
+      <div className="w-full h-[450px] bg-[#1E1E1E] flex flex-col items-center mt-28">
         <h1 className="text-8xl text-white mt-20">Ready to Start?</h1>
         <Button className="bg-[#3378FE] mt-14 rounded-full h-20 w-[300px] text-2xl">
           Get Started
@@ -264,7 +213,6 @@ export default function Home() {
           </button>
         </div>
       </div>
-
       <Footer />
     </div>
   );
