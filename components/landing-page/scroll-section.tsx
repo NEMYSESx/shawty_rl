@@ -1,33 +1,62 @@
-const items = Array(12).fill(null); // Array with 12 items
+"use client";
+
+import React from "react";
 
 export const ScrollSection = ({
   direction,
 }: {
   direction: "left" | "right";
-}) => (
-  <div className="flex w-[1455px]">
-    <div className={`flex animate-loop-scroll-${direction} space-x-16`}>
-      {items.map((_, index) => (
-        <div
-          key={`item-${direction}-${index}`}
-          className="w-[400px] h-[314px] bg-gray-200 rounded-xl border"
-        ></div>
-      ))}
-    </div>
+}) => {
+  const row1 = Array(12).fill(null);
+  // const row2 = Array(12).fill(null);
 
-    {/* Duplicate Set for Seamless Scrolling */}
-    <div
-      className={`flex animate-loop-scroll-${direction} space-x-16`}
-      aria-hidden="true"
-    >
-      {items.map((_, index) => (
-        <div
-          key={`duplicate-${direction}-${index}`}
-          className={`w-[400px] h-[314px] bg-gray-200 rounded-xl border ${
-            index === 0 ? "ml-16" : ""
-          }`}
-        ></div>
-      ))}
+  return (
+    <div className="w-screen h-screen flex items-center justify-center relative text-black">
+      <div className="w-full flex flex-col items-center justify-center">
+        {/* First Marquee Section */}
+        <div className="flex w-[1200px] overflow-hidden select-none mask-image">
+          <div
+            className={`flex flex-shrink-0 items-center justify-around whitespace-nowrap animate-scroll-${direction}`}
+          >
+            {row1.map((_, index) => (
+              <div
+                className="w-[400px] h-[314px] bg-gray-300 rounded-lg mx-2 shadow-md"
+                key={index}
+              />
+            ))}
+          </div>
+          <div
+            className={`flex flex-shrink-0 items-center justify-around whitespace-nowrap animate-scroll-${direction}`}
+          >
+            {row1.map((_, index) => (
+              <div
+                className="w-[400px] h-[314px] bg-gray-300 rounded-lg mx-2 shadow-md"
+                key={index + 12} // Ensure unique key for second group
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Second Marquee Section */}
+        {/* <div className="flex w-[1200px] overflow-hidden select-none mask-image">
+          <div className="flex flex-shrink-0 items-center justify-around whitespace-nowrap animate-scroll-x-reverse">
+            {row2.map((_, index) => (
+              <div
+                className="w-[400px] h-[314px] bg-gray-300 rounded-lg mx-2 shadow-md"
+                key={index}
+              />
+            ))}
+          </div>
+          <div className="flex flex-shrink-0 items-center justify-around whitespace-nowrap animate-scroll-x-reverse">
+            {row2.map((_, index) => (
+              <div
+                className="w-[400px] h-[314px] bg-gray-300 rounded-lg mx-2 shadow-md"
+                key={index + 12} // Ensure unique key for second group
+              />
+            ))}
+          </div>
+        </div> */}
+      </div>
     </div>
-  </div>
-);
+  );
+};

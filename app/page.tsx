@@ -184,13 +184,10 @@ export default function Home() {
       <h2 className="text-xl text-[#919191] font-semibold mt-3">
         Discover what our Happy users have to say
       </h2>
-      <div className="mt-12 flex flex-col space-y-16 w-[1455px]">
-        {/* Row 1: Scroll Left */}
-        <ScrollSection direction="left" />
 
-        {/* Row 2: Scroll Right */}
-        <ScrollSection direction="right" />
-      </div>
+      <ScrollSection direction="left" />
+      <ScrollSection direction="right" />
+      {/* <ScrollSection /> */}
 
       <div className="w-full h-[450px] bg-[#1E1E1E] flex flex-col items-center mt-28">
         <h1 className="text-8xl text-white mt-20">Ready to Start?</h1>
@@ -205,7 +202,7 @@ export default function Home() {
         </h2>
         <div className="relative w-[500px]">
           <Input
-            className="w-[500px] bg-[#F6F6F6] h-20 mt-20 rounded-full placeholder:text-xl placeholder:pl-5 placeholder:mt-2"
+            className="w-[500px] bg-[#F6F6F6] h-20 mt-20 rounded-full placeholder:text-xl placeholder:pl-5"
             placeholder="Enter your email"
           />
           <button className="absolute right-2 top-[90px] bg-blue-500 hover:bg-blue-600 text-white rounded-full h-16 px-5">
