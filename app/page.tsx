@@ -74,7 +74,7 @@ export default function Home() {
           Get Started
         </Button>
         <Image
-          className="mt-40 shadow-xl"
+          className="mt-40 shadow-xl bg-none"
           src={dash_img}
           alt="ui img"
           width={1300}

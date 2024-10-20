@@ -6,6 +6,8 @@ import {
   useSpring,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import icon1 from "@/assests/icon1.png";
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;
 
@@ -72,6 +74,16 @@ export const FeatureCard = ({
         }}
         className="absolute inset-4 grid place-content-center rounded-xl bg-[#FAF9F6] shadow-lg"
       >
+        <div
+          className="w-14 h-14 rounded-full ml-5 bg-red-200 p-1"
+          style={{
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)", // Add shadow
+            transform: "scale(1.1)", // Slightly increase size for popping effect
+            transition: "transform 0.3s ease-in-out", // Smooth transition on hover
+          }}
+        >
+          <Image src={icon1} alt="fk" height={100} width={100} />
+        </div>
         <h1
           className="text-3xl font-semibold text-gray-800 mb-4 p-2"
           style={{
@@ -81,15 +93,6 @@ export const FeatureCard = ({
           {title}
         </h1>
         <p className="text-lg text-gray-600 leading-relaxed p-2">{body}</p>
-        {/* <h1
-          style={{
-            transform: "translateZ(50px)",
-          }}
-          className="text-center text-2xl font-bold"
-        >
-          {title}
-          <p>{body}</p>
-        </h1> */}
       </div>
     </motion.div>
   );
