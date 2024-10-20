@@ -3,13 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assests/SHAWTY_RL.png";
-import { Switch } from "../ui/switch";
+// import { Switch } from "../ui/switch";
 import { Button } from "../ui/button";
-import { Sun, Moon } from "lucide-react";
-import { useState } from "react";
+// import { Sun, Moon } from "lucide-react";
+// import { useState } from "react";
+import DarkModeToggle from "./toggle";
 
 export const Navbar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // const [isDarkMode, setIsDarkMode] = useState(false);
   const routes = [
     { href: "#features", label: "Features" },
     { href: "#pricing", label: "Pricing" },
@@ -17,7 +18,7 @@ export const Navbar = () => {
     { href: "#downloads", label: "Downloads" },
   ];
 
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+  // const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
   return (
     <nav className="w-screen">
@@ -41,32 +42,11 @@ export const Navbar = () => {
             ))}
           </ul>
         </div>
-
-        <div className="flex items-center gap-4 mr-[100px]">
-          <div className="mr-10">
-            <Switch
-              className="relative scale-150"
-              onCheckedChange={toggleDarkMode}
-            >
-              <span className="absolute inset-0 flex items-center justify-center">
-                <Sun
-                  className={`text-yellow-500 ${
-                    isDarkMode ? "opacity-0" : "opacity-100"
-                  } transition-opacity`}
-                  size={20}
-                />
-                <Moon
-                  className={`text-gray-800 ${
-                    isDarkMode ? "opacity-100" : "opacity-0"
-                  } transition-opacity`}
-                  size={20}
-                />
-              </span>
-            </Switch>
-          </div>
+        <DarkModeToggle />
+        <div className="relative">
           <Button
             variant="outline"
-            className="border rounded-full w-[140px] h-14 text-[20px]"
+            className="border rounded-full w-[140px] h-14 text-[20px] absolute right-[125px] -top-7"
           >
             Sign Up
           </Button>

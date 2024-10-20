@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { accordionData } from "@/constant/landingPage";
 import { ScrollSection } from "@/components/landing-page/scroll-section";
 import { splitString } from "@/lib/split-char";
+import { FeatureCard } from "@/components/landing-page/feature-card";
 export default function Home() {
   const head1 = "Shorten, Share, and Track -Your Complete Digital Toolkit";
   const headChar1 = splitString({ str: head1 });
@@ -73,7 +74,7 @@ export default function Home() {
           Get Started
         </Button>
         <Image
-          className=" mt-40"
+          className="mt-40 shadow-xl"
           src={dash_img}
           alt="ui img"
           width={1300}
@@ -89,19 +90,42 @@ export default function Home() {
         Simplify Your Workflow with Custom Forms, Shortened URLs, and Real-Time
         Data
       </h1>
-      <div className="grid grid-cols-3 mt-36">
+      <div className="grid grid-cols-3 mt-20">
         <div className="relative">
-          <div className="h-[350px] w-[450px] border bg-[#F6F6F6] rounded-xl m-3 absolute top-48 border-black"></div>
+          <FeatureCard
+            className="absolute top-48"
+            title="Create Beautiful, Custom Forms"
+            body="Build fully customizable forms with ease—perfect for collecting information, feedback, and more, all tailored to your unique needs."
+          />
         </div>
         <div className="flex flex-col">
-          <div className="h-[350px] w-[450px] border bg-[#F6F6F6] rounded-xl m-3 border-black"></div>
-          <div className="h-[350px] w-[450px] border bg-[#F6F6F6] rounded-xl m-3 border-black"></div>
-          <div className="h-[350px] w-[450px] border bg-[#F6F6F6] rounded-xl m-3 border-black"></div>
+          <FeatureCard
+            title="Shorten and Simplify Links"
+            body="Generate clean, memorable short URLs that are easy to share, track, and manage for all your campaigns and content."
+          />
+          <FeatureCard
+            title="Track Engagement in Real Time"
+            body="Get detailed insights into how your links and forms are performing with real-time data, including clicks, submissions, and traffic trends."
+          />
+          <FeatureCard
+            title="All-in-One Bio Link"
+            body="Create a customizable bio link page to showcase your most important links, forms, and content—all in one place."
+          />
         </div>
         <div className="flex flex-col relative">
           <div className="absolute top-32">
-            <div className="h-[350px] w-[450px] border bg-[#F6F6F6] rounded-xl m-3 mb-6 border-black"></div>
-            <div className="h-[350px] w-[450px] border bg-[#F6F6F6] rounded-xl m-3 border-black"></div>
+            <FeatureCard
+              className="mb-8"
+              title="Integrate with Your Favorite Tools"
+              body="Connect your forms, links, and analytics with third-party tools for seamless workflows that boost productivity and engagement."
+            />
+          </div>
+          <div className="absolute top-[500px]">
+            <FeatureCard
+              className="mt-8"
+              title="Simple and Intuitive Design"
+              body="Enjoy a clean, easy-to-use interface that makes managing your links, forms, and analytics a breeze—no technical skills required"
+            />
           </div>
         </div>
       </div>
