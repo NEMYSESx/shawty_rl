@@ -1,3 +1,4 @@
+"use client";
 import { Navbar } from "@/components/landing-page/navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -5,7 +6,7 @@ import dash_img from "@/assests/dash_image.png";
 import { Switch } from "@/components/ui/switch";
 import { ArrowRight, Check } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -16,23 +17,58 @@ import Footer from "@/components/landing-page/footer";
 import { Input } from "@/components/ui/input";
 import { accordionData } from "@/constant/landingPage";
 import { ScrollSection } from "@/components/landing-page/scroll-section";
+import { splitString } from "@/lib/split-char";
 export default function Home() {
+  const head1 = "Shorten, Share, and Track -Your Complete Digital Toolkit";
+  const headChar1 = splitString({ str: head1 });
+
+  const head2 =
+    "Create custom forms, shorten URLs, and analyze performance one intuitive platform  —all from one intuitive platform 🚀🌟.";
+
+  const headChar2 = splitString({ str: head2 });
+
+  const charVarients = {
+    hidden: { opacity: 0 },
+    reveal: { opacity: 1 },
+  };
   return (
     <div className="flex flex-col items-center">
       <Navbar />
       <div className="h-[1455px] w-[1455px] border rounded-3xl bg-[#F6F6F6] border-[#8B8B8B] flex flex-col items-center">
-        <h1 className="text-[64px] h-54 mt-5 font-bold">
-          Shorten, Share, and Track
-        </h1>
-        <h1 className="font-bold text-[64px]">-Your Complete Digital </h1>
-        <h1 className="font-bold text-[64px]">Toolkit</h1>
-        <h2 className="text-[#8C8C8C] text-xl">
-          Create custom forms, shorten URLs, and analyze performance one
-          intuitive platform.
-        </h2>
-        <h2 className="text-[#8C8C8C] text-xl">
-          —all from one intuitive platform.
-        </h2>
+        <motion.h1
+          className="text-[64px] h-54 mt-5 font-bold w-[800px] text-center"
+          initial="hidden"
+          whileInView="reveal"
+          transition={{ staggerChildren: 0.02 }}
+        >
+          {headChar1.map((char) => (
+            <motion.span
+              key={char}
+              transition={{ duration: 0.5 }}
+              variants={charVarients}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </motion.h1>
+
+        <motion.h2
+          className="text-[#8C8C8C] text-xl w-[750px] text-center"
+          initial="hidden"
+          whileInView="reveal"
+          transition={{ staggerChildren: 0.02 }}
+        >
+          {headChar2.map((char) => (
+            <motion.span
+              key={char}
+              transition={{ duration: 0.1 }}
+              variants={charVarients}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </motion.h2>
+
         <Button className="bg-[#3378FE] text-white rounded-full h-14 w-40 text-lg font-bold mt-5">
           Get Started
         </Button>
