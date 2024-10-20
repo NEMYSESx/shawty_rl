@@ -1,4 +1,5 @@
 "use client";
+// import "./globals.css";
 import { Navbar } from "@/components/landing-page/navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -42,9 +43,9 @@ export default function Home() {
           whileInView="reveal"
           transition={{ staggerChildren: 0.02 }}
         >
-          {headChar1.map((char) => (
+          {headChar1.map((char, key) => (
             <motion.span
-              key={char}
+              key={key}
               transition={{ duration: 0.5 }}
               variants={charVarients}
             >
@@ -59,9 +60,9 @@ export default function Home() {
           whileInView="reveal"
           transition={{ staggerChildren: 0.02 }}
         >
-          {headChar2.map((char) => (
+          {headChar2.map((char, key) => (
             <motion.span
-              key={char}
+              key={key}
               transition={{ duration: 0.1 }}
               variants={charVarients}
             >
