@@ -25,6 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      />
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

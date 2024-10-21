@@ -9,7 +9,7 @@ export default function DarkModeToggle() {
 
   return (
     <div
-      className={`flex items-center justify-center transition-all duration-500`}
+      className={`flex items-center justify-center transition-all duration-500 mr-20`}
     >
       <label
         className={`w-[74px] h-10 pl-1 rounded-full cursor-pointer relative transition-all duration-500 

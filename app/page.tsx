@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center">
       <Navbar />
-      <div className="h-[1455px] w-[1455px] border rounded-3xl bg-[#F6F6F6] border-[#8B8B8B] flex flex-col items-center">
+      <div className="h-[1455px] w-[1300px] border rounded-3xl bg-[#F6F6F6] border-[#8B8B8B] flex flex-col items-center">
         <motion.h1
           className="text-[64px] h-54 mt-5 font-bold w-[800px] text-center"
           initial="hidden"
