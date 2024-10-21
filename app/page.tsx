@@ -130,7 +130,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-[1455px] border h-[900px] bg-[#F6F6F6] rounded-2xl mt-36 flex flex-col items-center justify-center border-black">
+      <div className="w-[1300px] border h-[900px] bg-[#F6F6F6] rounded-2xl mt-36 flex flex-col items-center justify-center border-black">
         <h1 className="text-6xl font-semibold">Pricing</h1>
         <h2 className="text-xl text-[#8C8C8C] mt-5">
           Transparent and flexible options to suit your needs
