@@ -8,6 +8,7 @@ import { Switch } from "@/components/ui/switch";
 import { ArrowRight, Check } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { motion } from "framer-motion";
+import logo from "@/assests/SHAWTY_RL.png";
 import {
   Accordion,
   AccordionContent,
@@ -20,6 +21,15 @@ import { accordionData } from "@/constant/landingPage";
 import { ScrollSection } from "@/components/landing-page/scroll-section";
 import { splitString } from "@/lib/split-char";
 import { FeatureCard } from "@/components/landing-page/feature-card";
+import {
+  FileText,
+  Link,
+  BarChart2,
+  UserCircle,
+  Plug,
+  LayoutDashboard,
+} from "lucide-react";
+
 export default function Home() {
   const head1 = "Shorten, Share, and Track -Your Complete Digital Toolkit";
   const headChar1 = splitString({ str: head1 });
@@ -97,20 +107,25 @@ export default function Home() {
             className="absolute top-48"
             title="Create Beautiful, Custom Forms"
             body="Build fully customizable forms with ease—perfect for collecting information, feedback, and more, all tailored to your unique needs."
+            logo={<FileText className="h-12 w-12 m-5" />}
+            logoClassName="mt-5"
           />
         </div>
         <div className="flex flex-col">
           <FeatureCard
             title="Shorten and Simplify Links"
             body="Generate clean, memorable short URLs that are easy to share, track, and manage for all your campaigns and content."
+            logo={<Link className="h-12 w-12 mt-3 ml-5" />}
           />
           <FeatureCard
             title="Track Engagement in Real Time"
             body="Get detailed insights into how your links and forms are performing with real-time data, including clicks, submissions, and traffic trends."
+            logo={<BarChart2 className="h-12 w-12 m-5" />}
           />
           <FeatureCard
             title="All-in-One Bio Link"
             body="Create a customizable bio link page to showcase your most important links, forms, and content—all in one place."
+            logo={<UserCircle className="h-12 w-12 mt-0 ml-5" />}
           />
         </div>
         <div className="flex flex-col relative">
@@ -119,6 +134,7 @@ export default function Home() {
               className="mb-8"
               title="Integrate with Your Favorite Tools"
               body="Connect your forms, links, and analytics with third-party tools for seamless workflows that boost productivity and engagement."
+              logo={<Plug className="h-12 w-12 mt-6 ml-4" />}
             />
           </div>
           <div className="absolute top-[500px]">
@@ -126,6 +142,7 @@ export default function Home() {
               className="mt-8"
               title="Simple and Intuitive Design"
               body="Enjoy a clean, easy-to-use interface that makes managing your links, forms, and analytics a breeze—no technical skills required"
+              logo={<LayoutDashboard className="h-12 w-12 mt-6 ml-4" />}
             />
           </div>
         </div>
@@ -147,7 +164,10 @@ export default function Home() {
           <div className="pricing-card w-[360px] h-[630px] border rounded-xl m-5 bg-white p-10 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
             <h1 className="text-3xl">Free</h1>
             <h1 className="font-semibold text-7xl mt-3">$0</h1>
-            <p className="text-[#8B8B8B]">per month</p>
+            <div className="relative">
+              <p className="text-[#8B8B8B] mb-6 absolute -top-10">per month</p>
+            </div>
+
             <ul className="mt-10">
               {[...Array(5)].map((_, i) => (
                 <li key={i} className="mt-4">
@@ -177,7 +197,9 @@ export default function Home() {
               </div>
             </div>
             <h1 className="font-semibold text-7xl mt-3 text-white">$15</h1>
-            <p className="text-[#8B8B8B]">per month</p>
+            <div className="relative">
+              <p className="text-[#8B8B8B] mb-6 absolute -top-10">per month</p>
+            </div>
             <ul className="mt-10">
               {[...Array(5)].map((_, i) => (
                 <li key={i} className="mt-4">
@@ -204,7 +226,9 @@ export default function Home() {
           <div className="pricing-card w-[360px] h-[630px] border rounded-xl m-5 bg-white p-10 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
             <h1 className="text-3xl">Enterprise</h1>
             <h1 className="font-semibold text-7xl mt-3">$50</h1>
-            <p className="text-[#8B8B8B]">per month</p>
+            <div className="relative">
+              <p className="text-[#8B8B8B] mb-6 absolute -top-10">per month</p>
+            </div>
             <ul className="mt-10">
               {[...Array(5)].map((_, i) => (
                 <li key={i} className="mt-4">
@@ -250,11 +274,12 @@ export default function Home() {
       <ScrollSection direction="right" />
       {/* <ScrollSection /> */}
 
-      <div className="w-full h-[450px] bg-[#1E1E1E] flex flex-col items-center mt-28">
+      <div className="w-full h-auto bg-[#1E1E1E] flex flex-col items-center mt-28">
         <h1 className="text-8xl text-white mt-20">Ready to Start?</h1>
         <Button className="bg-[#3378FE] mt-14 rounded-full h-20 w-[300px] text-2xl">
           Get Started
         </Button>
+        <Image src={logo} alt="logo" width={300} height={300} />
       </div>
       <div className="h-[500px] border w-full rounded-b-3xl border-black flex flex-col items-center">
         <h1 className="text-6xl font-semibold mt-24">Join our NewsLetter</h1>

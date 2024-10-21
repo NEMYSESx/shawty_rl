@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { ReactNode, useRef } from "react";
 import {
   motion,
   useMotionTemplate,
@@ -6,8 +6,7 @@ import {
   useSpring,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import icon1 from "@/assests/icon1.png";
+
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;
 
@@ -15,10 +14,14 @@ export const FeatureCard = ({
   className,
   title,
   body,
+  logo,
+  logoClassName,
 }: {
   className?: string;
   title: string;
   body: string;
+  logo: ReactNode;
+  logoClassName?: string;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -64,7 +67,7 @@ export const FeatureCard = ({
       }}
       className={cn(
         className,
-        "relative bg-[#e9ddff] h-[350px] w-[450px] border  rounded-xl m-3"
+        "relative bg-[#e9ddff] h-[325px] w-[400px] border  rounded-xl m-3"
       )}
     >
       <div
@@ -72,27 +75,21 @@ export const FeatureCard = ({
           transform: "translateZ(75px)",
           transformStyle: "preserve-3d",
         }}
-        className="absolute inset-4 grid place-content-center rounded-xl bg-[#FAF9F6] shadow-lg"
+        className="absolute inset-4 grid place-content-center rounded-xl bg-[#FAF9F6] shadow-lg text-center"
       >
-        <div
-          className="w-14 h-14 rounded-full ml-5 bg-red-200 p-1"
-          style={{
-            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)", // Add shadow
-            transform: "scale(1.1)", // Slightly increase size for popping effect
-            transition: "transform 0.3s ease-in-out", // Smooth transition on hover
-          }}
-        >
-          <Image src={icon1} alt="fk" height={100} width={100} />
+        <div className={cn("h-12 w-12 rounded-full", logoClassName)}>
+          {logo}
         </div>
+
         <h1
-          className="text-3xl font-semibold text-gray-800 mb-4 p-2"
+          className="text-3xl font-semibold text-gray-800 mb-1 p-3"
           style={{
             transform: "translateZ(50px)",
           }}
         >
           {title}
         </h1>
-        <p className="text-lg text-gray-600 leading-relaxed p-2">{body}</p>
+        <p className="text-lg text-gray-600 leading-relaxed p-3">{body}</p>
       </div>
     </motion.div>
   );
