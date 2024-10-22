@@ -1,7 +1,10 @@
-import { useState } from "react";
+"use client";
+
+import { theme } from "@/store/atoms/dark-light";
+import { useRecoilState } from "recoil";
 
 export default function DarkModeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useRecoilState(theme);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);

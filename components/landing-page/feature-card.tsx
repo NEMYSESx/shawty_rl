@@ -6,6 +6,8 @@ import {
   useSpring,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useRecoilValue } from "recoil";
+import { theme } from "@/store/atoms/dark-light";
 
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;
@@ -56,6 +58,7 @@ export const FeatureCard = ({
     y.set(0);
   };
 
+  const mode = useRecoilValue(theme);
   return (
     <motion.div
       ref={ref}
@@ -67,7 +70,8 @@ export const FeatureCard = ({
       }}
       className={cn(
         className,
-        "relative bg-[#e9ddff] h-[325px] w-[400px] border  rounded-xl m-3"
+        "relative bg-[#e9ddff] h-[340px] w-[400px] border  rounded-xl m-3",
+        { "bg-black border-black": mode }
       )}
     >
       <div
@@ -75,14 +79,19 @@ export const FeatureCard = ({
           transform: "translateZ(75px)",
           transformStyle: "preserve-3d",
         }}
-        className="absolute inset-4 grid place-content-center rounded-xl bg-[#FAF9F6] shadow-lg text-center"
+        className={cn(
+          "absolute inset-4 grid place-content-center rounded-xl bg-[#FAF9F6] shadow-lg text-center",
+          { "bg-[#1f2328]": mode }
+        )}
       >
         <div className={cn("h-12 w-12 rounded-full", logoClassName)}>
           {logo}
         </div>
 
         <h1
-          className="text-3xl font-semibold text-gray-800 mb-1 p-3"
+          className={cn("text-3xl font-semibold text-gray-800 mb-1 p-3", {
+            "text-white": mode,
+          })}
           style={{
             transform: "translateZ(50px)",
           }}

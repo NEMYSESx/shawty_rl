@@ -3,14 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assests/SHAWTY_RL.png";
-// import { Switch } from "../ui/switch";
 import { Button } from "../ui/button";
-// import { Sun, Moon } from "lucide-react";
-// import { useState } from "react";
+
 import DarkModeToggle from "./toggle";
+import { cn } from "@/lib/utils";
+import { useRecoilValue } from "recoil";
+import { theme } from "@/store/atoms/dark-light";
 
 export const Navbar = () => {
-  // const [isDarkMode, setIsDarkMode] = useState(false);
   const routes = [
     { href: "#features", label: "Features" },
     { href: "#pricing", label: "Pricing" },
@@ -18,7 +18,7 @@ export const Navbar = () => {
     { href: "#downloads", label: "Downloads" },
   ];
 
-  // const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+  const mode = useRecoilValue(theme);
 
   return (
     <nav className="w-screen">
@@ -31,11 +31,7 @@ export const Navbar = () => {
           <ul className="flex flex-row">
             {routes.map((route, index) => (
               <li key={index} className="m-7">
-                <Link
-                  href={route.href}
-                  scroll={false}
-                  className="hover:text-gray-300 text-xl"
-                >
+                <Link href={route.href} className="hover:text-gray-300 text-xl">
                   {route.label}
                 </Link>
               </li>
@@ -46,7 +42,10 @@ export const Navbar = () => {
         <div className="relative">
           <Button
             variant="outline"
-            className="border rounded-full w-[140px] h-14 text-[20px] absolute right-[125px] -top-7"
+            className={cn(
+              "border rounded-full w-[140px] h-14 text-[20px] absolute right-[125px] -top-7",
+              { "bg-[#1f2328] text-white border-[#1f2328]": mode }
+            )}
           >
             Sign Up
           </Button>

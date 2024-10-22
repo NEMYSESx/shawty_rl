@@ -29,8 +29,12 @@ import {
   Plug,
   LayoutDashboard,
 } from "lucide-react";
+import { useRecoilValue } from "recoil";
+import { theme } from "@/store/atoms/dark-light";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
+  const mode = useRecoilValue(theme);
   const head1 = "Shorten, Share, and Track -Your Complete Digital Toolkit";
   const headChar1 = splitString({ str: head1 });
 
@@ -44,11 +48,19 @@ export default function Home() {
     reveal: { opacity: 1 },
   };
   return (
-    <div className="flex flex-col items-center">
+    <div className={cn("flex flex-col items-center", { "bg-[#272b30]": mode })}>
       <Navbar />
-      <div className="h-[1455px] w-[1300px] border rounded-3xl bg-[#F6F6F6] border-[#8B8B8B] flex flex-col items-center">
+      <div
+        className={cn(
+          "h-[1455px] w-[1300px] border rounded-3xl bg-[#F6F6F6] border-[#8B8B8B] flex flex-col items-center",
+          { "bg-[#1f2328] border-[#1f2328]": mode }
+        )}
+      >
         <motion.h1
-          className="text-[64px] h-54 mt-5 font-bold w-[800px] text-center"
+          className={cn(
+            "text-[64px] h-54 mt-5 font-bold w-[800px] text-center",
+            { "text-white ": mode }
+          )}
           initial="hidden"
           whileInView="reveal"
           transition={{ staggerChildren: 0.02 }}
@@ -96,7 +108,13 @@ export default function Home() {
         Trusted By Leading People
       </h2>
       <div className="h-96 border"></div>
-      <h1 className="text-6xl font-semibold">Features</h1>
+      <div></div>
+      <h1
+        className={cn("text-6xl font-semibold", { "text-white": mode })}
+        id="features"
+      >
+        Features
+      </h1>
       <h1 className="text-xl text-[#8C8C8C] mt-5">
         Simplify Your Workflow with Custom Forms, Shortened URLs, and Real-Time
         Data
@@ -107,7 +125,11 @@ export default function Home() {
             className="absolute top-48"
             title="Create Beautiful, Custom Forms"
             body="Build fully customizable forms with ease—perfect for collecting information, feedback, and more, all tailored to your unique needs."
-            logo={<FileText className="h-12 w-12 m-5" />}
+            logo={
+              <FileText
+                className={cn("h-12 w-12 m-5", { "text-white": mode })}
+              />
+            }
             logoClassName="mt-5"
           />
         </div>
@@ -115,17 +137,29 @@ export default function Home() {
           <FeatureCard
             title="Shorten and Simplify Links"
             body="Generate clean, memorable short URLs that are easy to share, track, and manage for all your campaigns and content."
-            logo={<Link className="h-12 w-12 mt-3 ml-5" />}
+            logo={
+              <Link
+                className={cn("h-12 w-12 mt-3 ml-5", { "text-white": mode })}
+              />
+            }
           />
           <FeatureCard
             title="Track Engagement in Real Time"
             body="Get detailed insights into how your links and forms are performing with real-time data, including clicks, submissions, and traffic trends."
-            logo={<BarChart2 className="h-12 w-12 m-5" />}
+            logo={
+              <BarChart2
+                className={cn("h-12 w-12 m-5", { "text-white": mode })}
+              />
+            }
           />
           <FeatureCard
             title="All-in-One Bio Link"
             body="Create a customizable bio link page to showcase your most important links, forms, and content—all in one place."
-            logo={<UserCircle className="h-12 w-12 mt-0 ml-5" />}
+            logo={
+              <UserCircle
+                className={cn("h-12 w-12 mt-0 ml-5", { "text-white": mode })}
+              />
+            }
           />
         </div>
         <div className="flex flex-col relative">
@@ -134,7 +168,11 @@ export default function Home() {
               className="mb-8"
               title="Integrate with Your Favorite Tools"
               body="Connect your forms, links, and analytics with third-party tools for seamless workflows that boost productivity and engagement."
-              logo={<Plug className="h-12 w-12 mt-6 ml-4" />}
+              logo={
+                <Plug
+                  className={cn("h-12 w-12 mt-6 ml-4", { "text-white": mode })}
+                />
+              }
             />
           </div>
           <div className="absolute top-[500px]">
@@ -142,26 +180,45 @@ export default function Home() {
               className="mt-8"
               title="Simple and Intuitive Design"
               body="Enjoy a clean, easy-to-use interface that makes managing your links, forms, and analytics a breeze—no technical skills required"
-              logo={<LayoutDashboard className="h-12 w-12 mt-6 ml-4" />}
+              logo={
+                <LayoutDashboard
+                  className={cn("h-12 w-12 mt-6 ml-4", { "text-white": mode })}
+                />
+              }
             />
           </div>
         </div>
       </div>
-      <div className="w-[1300px] border h-[900px] bg-[#F6F6F6] rounded-2xl mt-36 flex flex-col items-center justify-center border-black">
-        <h1 className="text-6xl font-semibold">Pricing</h1>
+      <div
+        className={cn(
+          "w-[1300px] border h-[900px] bg-[#F6F6F6] rounded-2xl mt-36 flex flex-col items-center justify-center border-black",
+          { "bg-[#1f2328]": mode }
+        )}
+      >
+        <h1
+          className={cn("text-6xl font-semibold", { "text-white": mode })}
+          id="pricing"
+        >
+          Pricing
+        </h1>
         <h2 className="text-xl text-[#8C8C8C] mt-5">
           Transparent and flexible options to suit your needs
         </h2>
         <div className="flex mt-3">
-          <p className="m-2">Monthly</p>
+          <p className={cn("m-2", { "text-white": mode })}>Monthly</p>
           <Switch className="m-2" />
-          <p className="m-2">Yearly</p>
+          <p className={cn("m-2", { "text-white": mode })}>Yearly</p>
           <div className="bg-[#CAF6C9] rounded-lg p-1 h-7 mt-1">
             <span className="">SAVE 20%</span>
           </div>
         </div>
         <div className="flex">
-          <div className="pricing-card w-[360px] h-[630px] border rounded-xl m-5 bg-white p-10 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
+          <div
+            className={cn(
+              "pricing-card w-[360px] h-[630px] border rounded-xl m-5 bg-white p-10 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg",
+              { "bg-[#272b30] text-white": mode }
+            )}
+          >
             <h1 className="text-3xl">Free</h1>
             <h1 className="font-semibold text-7xl mt-3">$0</h1>
             <div className="relative">
@@ -181,7 +238,9 @@ export default function Home() {
             </ul>
             <div className="flex justify-center mt-8">
               <Button
-                className="rounded-full w-48 h-14 text-xl"
+                className={cn("rounded-full w-48 h-14 text-xl", {
+                  "text-black": mode,
+                })}
                 variant="outline"
               >
                 Start Free
@@ -223,7 +282,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="pricing-card w-[360px] h-[630px] border rounded-xl m-5 bg-white p-10 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
+          <div
+            className={cn(
+              "pricing-card w-[360px] h-[630px] border rounded-xl m-5 bg-white p-10 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg",
+              { "bg-[#272b30] text-white": mode }
+            )}
+          >
             <h1 className="text-3xl">Enterprise</h1>
             <h1 className="font-semibold text-7xl mt-3">$50</h1>
             <div className="relative">
@@ -242,7 +306,9 @@ export default function Home() {
             </ul>
             <div className="flex justify-center mt-8">
               <Button
-                className="rounded-full w-48 h-14 text-xl"
+                className={cn("rounded-full w-48 h-14 text-xl", {
+                  "text-black": mode,
+                })}
                 variant="outline"
               >
                 Upgrade Now
@@ -251,30 +317,45 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <h1 className="text-6xl font-semibold mt-36">FAQ</h1>
+      <h1
+        className={cn("text-6xl font-semibold mt-36", { "text-white": mode })}
+        id="faq"
+      >
+        FAQ
+      </h1>
       <h2 className="text-xl text-[#8B8B8B] mt-3">
         Got Questions? Check out our SaaS-tastic answers!
       </h2>
       <Accordion type="single" collapsible className="w-[1455px]">
         {accordionData.map(({ value, question, answer }) => (
           <AccordionItem key={value} value={value}>
-            <AccordionTrigger className="text-3xl">{question}</AccordionTrigger>
+            <AccordionTrigger
+              className={cn("text-3xl", { "text-white": mode })}
+            >
+              {question}
+            </AccordionTrigger>
             <AccordionContent className="text-2xl text-[#8B8B8B]">
               {answer}
             </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
-      <h1 className="text-6xl font-semibold mt-24">Wall of Love</h1>
+      <h1
+        className={cn("text-6xl font-semibold mt-24", { "text-white": mode })}
+      >
+        Wall of Love
+      </h1>
       <h2 className="text-xl text-[#919191] font-semibold mt-3">
         Discover what our Happy users have to say
       </h2>
 
       <ScrollSection direction="left" />
       <ScrollSection direction="right" />
-      {/* <ScrollSection /> */}
 
-      <div className="w-full h-auto bg-[#1E1E1E] flex flex-col items-center mt-28">
+      <div
+        className="w-full h-auto bg-[#1E1E1E] flex flex-col items-center mt-28"
+        id="downloads"
+      >
         <h1 className="text-8xl text-white mt-20">Ready to Start?</h1>
         <Button className="bg-[#3378FE] mt-14 rounded-full h-20 w-[300px] text-2xl">
           Get Started
@@ -282,7 +363,11 @@ export default function Home() {
         <Image src={logo} alt="logo" width={300} height={300} />
       </div>
       <div className="h-[500px] border w-full rounded-b-3xl border-black flex flex-col items-center">
-        <h1 className="text-6xl font-semibold mt-24">Join our NewsLetter</h1>
+        <h1
+          className={cn("text-6xl font-semibold mt-24", { "text-white": mode })}
+        >
+          Join our NewsLetter
+        </h1>
         <h2 className="text-xl text-[#919191]  mt-3">
           And stay in touch with us
         </h2>
