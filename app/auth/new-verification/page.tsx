@@ -1,7 +1,11 @@
-import React from "react";
+import NewVerificationForm from "@/components/auth/new-verification-form";
 
-const Page = () => {
-  return <div>Page</div>;
+const NewVerificationPage = () => {
+  return (
+    <div>
+      <NewVerificationForm />
+    </div>
+  );
 };
 
-export default Page;
+export default NewVerificationPage;
