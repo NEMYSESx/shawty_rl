@@ -32,8 +32,10 @@ import {
 import { useRecoilValue } from "recoil";
 import { theme } from "@/store/atoms/dark-light";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   const mode = useRecoilValue(theme);
   const head1 = "Shorten, Share, and Track -Your Complete Digital Toolkit";
   const headChar1 = splitString({ str: head1 });
@@ -46,6 +48,10 @@ export default function Home() {
   const charVarients = {
     hidden: { opacity: 0 },
     reveal: { opacity: 1 },
+  };
+
+  const handleLogin = () => {
+    router.push("/auth/login");
   };
   return (
     <div className={cn("flex flex-col items-center", { "bg-[#272b30]": mode })}>
@@ -93,7 +99,10 @@ export default function Home() {
           ))}
         </motion.h2>
 
-        <Button className="bg-[#3378FE] text-white rounded-full h-14 w-40 text-lg font-bold mt-5">
+        <Button
+          className="bg-[#3378FE] text-white rounded-full h-14 w-40 text-lg font-bold mt-5"
+          onClick={handleLogin}
+        >
           Get Started
         </Button>
         <Image

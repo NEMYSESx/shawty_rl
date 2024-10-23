@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assests/SHAWTY_RL.png";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 import DarkModeToggle from "./toggle";
 import { cn } from "@/lib/utils";
@@ -19,6 +20,7 @@ export const Navbar = () => {
   ];
 
   const mode = useRecoilValue(theme);
+  const router = useRouter();
 
   return (
     <nav className="w-screen">
@@ -46,6 +48,9 @@ export const Navbar = () => {
               "border rounded-full w-[140px] h-14 text-[20px] absolute right-[125px] -top-7",
               { "bg-[#1f2328] text-white border-[#1f2328]": mode }
             )}
+            onClick={() => {
+              router.push("/auth/login");
+            }}
           >
             Sign Up
           </Button>
