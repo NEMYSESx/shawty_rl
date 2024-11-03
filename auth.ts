@@ -39,9 +39,6 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     },
     //Its primary function is to populate the session object with relevant user information that can be accessed throughout your application.
     async session({ token, session }) {
-      console.log({
-        sessionToken: token,
-      });
       if (token.sub && session.user) {
         session.user.id = token.sub;
       }

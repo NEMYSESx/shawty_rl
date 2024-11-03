@@ -1,26 +1,48 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Configure Nodemailer transporter
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS,
+  },
+});
 
-const domain = process.env.NEXT_PUBLIC_APP_URL;
+// const domain = process.env.NEXT_PUBLIC_APP_URL;
 
+// Send Verification Email
 export const sendVerificationEmail = async (email: string, token: string) => {
-  const confirmLink = `${domain}/auth/new-verification?token=${token}`;
-
-  await resend.emails.send({
-    from: "onboarding@resend.dev",
-    to: email,
+  const mailOptions = {
+    from: process.env.GMAIL_USER, // Sender address
+    to: email, // Recipient
     subject: "Confirm your email",
-    html: `<p>click<a href="${confirmLink}">here</a>to verify</p>`,
-  });
+    html: `<p>${token}</p>`,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log("Verification email sent successfully.");
+  } catch (error) {
+    console.error("Error sending verification email:", error);
+  }
 };
 
-export const sendPasswordResetEmail = async (email: string, token: string) => {
-  const resetLink = `${domain}/auth/new-password?token=${token}`;
-  await resend.emails.send({
-    from: "onboadrding@resend.dev",
-    to: email,
-    subject: "Reset the password",
-    html: `<p>click<a href="${resetLink}">here</a> to reset password</p>`,
-  });
-};
+// Send Password Reset Email
+// export const sendPasswordResetEmail = async (email: string, token: string) => {
+//   const resetLink = `${domain}/auth/new-password?token=${token}`;
+
+//   const mailOptions = {
+//     from: `"App Support" <${process.env.GMAIL_USER}>`, // Sender address
+//     to: email, // Recipient
+//     subject: "Reset your password",
+//     html: `<p>Click <a href="${resetLink}">here</a> to reset your password.</p>`,
+//   };
+
+//   try {
+//     await transporter.sendMail(mailOptions);
+//     console.log("Password reset email sent successfully.");
+//   } catch (error) {
+//     console.error("Error sending password reset email:", error);
+//   }
+// };

@@ -1,17 +1,20 @@
 import { NextRequest } from "next/server";
-import { signIn } from "@/auth";
-import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
+import { auth, signIn } from "@/auth";
+import { getDefaultLoginRedirect } from "@/routes";
 import { AuthError } from "next-auth";
 
 export const POST = async (req: NextRequest): Promise<void | Response> => {
   try {
     const reqBody = await req.json();
     const { email, password } = reqBody;
+    const id = await auth();
+    const url = id?.user.id;
+    console.log("id from route", url);
     try {
       await signIn("credentials", {
         email,
         password,
-        redirectTo: DEFAULT_LOGIN_REDIRECT,
+        redirectTo: await getDefaultLoginRedirect(),
       });
       // If sign-in is successful, return void since there's no need for response
       return;

@@ -1,9 +1,10 @@
 import { getVerificationTokenByEmail } from "@/data/verification-token";
 import { getPasswordResetTokenByEmail } from "@/data/password-reset-token";
-import { v4 as uuidv4 } from "uuid";
 import { db } from "./db";
+const generateNumericCode = () =>
+  Math.floor(100000 + Math.random() * 900000).toString();
 export const generateVerificationToken = async (email: string) => {
-  const token = uuidv4();
+  const code = generateNumericCode();
   const expires = new Date(new Date().getTime() + 3600 * 1000);
 
   const existingToken = await getVerificationTokenByEmail(email);
@@ -18,7 +19,7 @@ export const generateVerificationToken = async (email: string) => {
   const verificationToken = await db.verficationToken.create({
     data: {
       email,
-      token,
+      token: code,
       expires,
     },
   });
@@ -26,7 +27,7 @@ export const generateVerificationToken = async (email: string) => {
 };
 
 export const generatePasswordResetToken = async (email: string) => {
-  const token = uuidv4();
+  const code = generateNumericCode();
   const expires = new Date(new Date().getTime() + 3600 * 1000);
 
   const existingToken = await getPasswordResetTokenByEmail(email);
@@ -39,7 +40,7 @@ export const generatePasswordResetToken = async (email: string) => {
   const passwordResetToken = await db.passwordResetToken.create({
     data: {
       email,
-      token,
+      token: code.toString(),
       expires,
     },
   });

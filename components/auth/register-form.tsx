@@ -20,8 +20,10 @@ import { useState, useTransition } from "react";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
 import { register } from "@/actions/register";
+import { useRouter } from "next/navigation";
 
 export const RegisterForm = () => {
+  const router = useRouter();
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -44,6 +46,7 @@ export const RegisterForm = () => {
         setSuccess(data.success);
       });
     });
+    router.push("/auth/new-verification");
   };
 
   return (
