@@ -12,12 +12,13 @@ import {
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import { LogoutButton } from "./logout-button";
-export const UserButton = () => {
+import { cn } from "@/utils";
+export const UserButton = ({ className }: { className?: string }) => {
   const user = useCurrentUser();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Avatar>
+        <Avatar className={cn("h-12 w-12", className)}>
           <AvatarImage src={user?.image || ""} />
           <AvatarFallback className="bg-sky-500">
             <FaUser className="text-white" />

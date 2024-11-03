@@ -3,15 +3,15 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { signIn } from "next-auth/react";
-import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
+import { getDefaultLoginRedirect } from "@/routes";
 import { useSearchParams } from "next/navigation";
 
 const Social = () => {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl");
-  const onClick = (provider: "google" | "github") => {
+  const onClick = async (provider: "google" | "github") => {
     signIn(provider, {
-      callbackUrl: callbackUrl || DEFAULT_LOGIN_REDIRECT,
+      callbackUrl: callbackUrl || (await getDefaultLoginRedirect()),
     });
   };
   return (
