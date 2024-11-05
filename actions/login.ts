@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import { LoginSchema } from "@/schemas/validation";
-import { auth, signIn } from "@/auth";
+import { signIn } from "@/auth";
 import { getDefaultLoginRedirect } from "@/routes";
 import { AuthError } from "next-auth";
 import { generateVerificationToken } from "@/lib/tokens";
@@ -14,9 +14,6 @@ export const login = async (
   callbackUrl?: string | null
 ) => {
   const validatedFields = LoginSchema.safeParse(values);
-  const id = await auth();
-  const url = id?.user.id;
-  console.log("id from login", url);
 
   if (!validatedFields.success) {
     return { error: "Invalid Fields" };

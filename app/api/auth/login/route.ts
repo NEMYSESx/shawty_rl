@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { auth, signIn } from "@/auth";
+import { signIn } from "@/auth";
 import { getDefaultLoginRedirect } from "@/routes";
 import { AuthError } from "next-auth";
 
@@ -7,9 +7,7 @@ export const POST = async (req: NextRequest): Promise<void | Response> => {
   try {
     const reqBody = await req.json();
     const { email, password } = reqBody;
-    const id = await auth();
-    const url = id?.user.id;
-    console.log("id from route", url);
+
     try {
       await signIn("credentials", {
         email,
