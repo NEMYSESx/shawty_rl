@@ -16,8 +16,8 @@ const Dashboard = () => {
             </div>
           </div>
           <div>
-            <div className="w-[500px] h-[485px] bg-white rounded-2xl ml-5"></div>
-            <div className="w-[500px] h-[225px] bg-white rounded-2xl ml-5 mt-5"></div>
+            <div className="w-[300px] h-[485px] bg-white rounded-2xl ml-5"></div>
+            <div className="w-[300px] h-[225px] bg-white rounded-2xl ml-5 mt-5"></div>
           </div>
         </div>
       </div>
