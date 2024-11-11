@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { signIn } from "@/auth";
-import { getDefaultLoginRedirect } from "@/routes";
+import { getDefaultLoginRedirect } from "@/data/getUserId";
 import { AuthError } from "next-auth";
 
 export const POST = async (req: NextRequest): Promise<void | Response> => {

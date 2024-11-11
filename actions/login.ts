@@ -3,7 +3,7 @@
 import * as z from "zod";
 import { LoginSchema } from "@/schemas/validation";
 import { signIn } from "@/auth";
-import { getDefaultLoginRedirect } from "@/routes";
+import { getDefaultLoginRedirect } from "@/data/getUserId";
 import { AuthError } from "next-auth";
 import { generateVerificationToken } from "@/lib/tokens";
 import { getUserByEmail } from "@/data/user";
