@@ -9,9 +9,9 @@ const Dashboard = () => {
         <h1 className="font-semibold ml-12 text-6xl">Dashboard</h1>
         <div className="flex">
           <div>
-            <div className="h-[350px] w-[770px] bg-white rounded-2xl ml-12"></div>
+            <div className="h-[350px] w-[500px] bg-white rounded-2xl ml-12"></div>
             <div className="flex">
-              <div className="h-[350px] w-[375px] bg-white rounded-2xl ml-12 mt-5"></div>
+              <div className="h-[350px] w-[300px] bg-white rounded-2xl ml-12 mt-5"></div>
               <div className="w-[375px] h-[350px] bg-white rounded-2xl ml-5 mt-5"></div>
             </div>
           </div>
