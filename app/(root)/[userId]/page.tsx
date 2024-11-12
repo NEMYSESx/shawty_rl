@@ -7,11 +7,11 @@ import React from "react";
 const Dashboard = () => {
   return (
     <div>
-      <div>
-        <h1 className="font-semibold ml-12 text-6xl">Dashboard</h1>
+      <div className="m-5">
+        {/* <h1 className="font-semibold ml-12 text-6xl">Dashboard</h1> */}
         <div className="flex">
           <div>
-            <div className="h-[350px] w-[695px] bg-white rounded-2xl ml-12 p-10">
+            <div className="h-[350px] w-[695px] bg-white rounded-2xl p-10">
               <div className="flex justify-between h-full">
                 <div>
                   <div className="flex">
@@ -35,7 +35,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="flex">
-              <div className="w-[270px] h-[360px] bg-white rounded-2xl ml-12 mt-5 p-10">
+              <div className="w-[270px] h-[360px] bg-white rounded-2xl mt-5 p-10">
                 {" "}
               </div>
               <div className="w-[405px] h-[360px] bg-white rounded-2xl ml-5 mt-5 p-10">
@@ -89,29 +89,29 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <div className="w-[420px] h-[270px] bg-white rounded-2xl ml-5 mt-5 p-10">
-              {" "}
+            <div className="w-[420px] h-[270px] bg-white rounded-2xl p-10 shadow-md mt-5 ml-5">
               <div className="flex justify-between h-full">
                 <div>
-                  <div className="flex">
-                    <div className="bg-[#BB92FF] h-12 w-6" />
-                    <p className="font-bold text-3xl ml-3 mt-1">Analytics</p>
+                  <div className="flex items-center">
+                    <div className="bg-[#BB92FF] h-12 w-2 mr-3" />
+                    <p className="font-bold text-3xl">Analytics</p>
                   </div>
-                  <p className="text-6xl mt-2 font-bold ml-10">42</p>
-                  <p className="ml-10 mt-1 font-semibold">Active forms</p>
-                  <div className="flex flex-col justify-between">
-                    <div className="bg-slate-200 p-4 w-24 h-20 rounded-lg flex items-center justify-center ml-11">
-                      <Link className="h-12 w-12" />
-                    </div>
-                    <Button className="bg-[#B5FFB4] h-14 w-36 rounded-xl hover:bg-[#f86868]">
-                      <Plus className="text-[#00B512] h-12 w-12" />
-                      <span className="text-[#00B512] text-xl font-semibold">
-                        Analyze
-                      </span>
-                    </Button>
-                  </div>
+                  <p className="text-6xl mt-2 font-bold ml-8">42</p>
+                  <p className="ml-8 mt-1 font-semibold text-gray-600">
+                    Total Analysis
+                  </p>
                 </div>
-                <div className="flex flex-col justify-end mr-20"></div>
+                <div className="flex flex-col justify-between items-center">
+                  <div className="bg-slate-200 p-4 rounded-lg flex items-center justify-center">
+                    <Link className="h-12 w-12 text-gray-600" />
+                  </div>
+                  <Button className="flex items-center bg-[#B5FFB4] h-14 w-36 rounded-xl mt-4 hover:bg-[#f86868]">
+                    <Plus className="text-[#00B512] h-6 w-6 mr-2" />
+                    <span className="text-[#00B512] text-xl font-semibold">
+                      Analyze
+                    </span>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
