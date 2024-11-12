@@ -8,10 +8,9 @@ const Dashboard = () => {
   return (
     <div>
       <div className="m-5">
-        {/* <h1 className="font-semibold ml-12 text-6xl">Dashboard</h1> */}
         <div className="flex">
           <div>
-            <div className="h-[350px] w-[695px] bg-white rounded-2xl p-10">
+            <div className="h-[300px] w-[695px] bg-white rounded-2xl p-10">
               <div className="flex justify-between h-full">
                 <div>
                   <div className="flex">
@@ -65,7 +64,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div>
-            <div className="w-[420px] h-[440px] bg-white rounded-2xl ml-5 p-10">
+            <div className="w-[420px] h-[390px] bg-white rounded-2xl ml-5 p-10">
               {" "}
               <div className="flex justify-between h-full">
                 <div>
