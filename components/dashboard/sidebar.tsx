@@ -76,9 +76,6 @@ const Sidebar = () => {
           );
         })}
       </div>
-      <footer className="p-4 text-sm text-gray-500 text-center border-t border-gray-200">
-        &copy; 2024 My App
-      </footer>
     </div>
   );
 };

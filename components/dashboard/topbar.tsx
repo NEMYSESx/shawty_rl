@@ -3,7 +3,7 @@ import { UserButton } from "@/components/auth/user-button";
 import Image from "next/image";
 import logo from "@/assests/SHAWTY_RL.png";
 import { Input } from "../ui/input";
-import { Plus } from "lucide-react";
+import { Plus, Search } from "lucide-react";
 import { Button } from "../ui/button";
 
 const Topbar = () => {
@@ -11,10 +11,13 @@ const Topbar = () => {
     <nav className="h-20 w-full flex items-center justify-between bg-white px-6">
       <Image src={logo} alt="logo" height={130} width={130} />
       <div className="relative">
+        <Search className="absolute right-[307px] -bottom-2 h-6 w-6" />
         <Input
-          className="w-96 absolute -right-10 -bottom-5 rounded-full h-11 placeholder:text-3xl:start-10"
+          className="w-96 absolute -right-10 -bottom-5 rounded-full h-11"
           placeholder="Search..."
+          style={{ paddingLeft: "3rem" }}
         />
+        <Button className="absolute -bottom-4 -right-6">K</Button>
       </div>
       <div className="flex items-center space-x-4">
         <Button className="bg-[#3378FE] flex items-center space-x-2 h-10">
