@@ -10,7 +10,7 @@ const Dashboard = () => {
       <div className="m-5">
         <div className="flex">
           <div>
-            <div className="h-[300px] w-[695px] bg-white rounded-2xl p-10">
+            <div className="h-[250px] w-[695px] bg-white rounded-2xl p-10">
               <div className="flex justify-between h-full">
                 <div>
                   <div className="flex">
@@ -35,7 +35,7 @@ const Dashboard = () => {
             </div>
             <div className="flex">
               <div className="w-[270px] h-[360px] bg-white rounded-2xl mt-5 p-10">
-                {" "}
+                <p>Coming soon....</p>
               </div>
               <div className="w-[405px] h-[360px] bg-white rounded-2xl ml-5 mt-5 p-10">
                 {" "}
@@ -64,7 +64,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div>
-            <div className="w-[420px] h-[390px] bg-white rounded-2xl ml-5 p-10">
+            <div className="w-[420px] h-[340px] bg-white rounded-2xl ml-5 p-10">
               {" "}
               <div className="flex justify-between h-full">
                 <div>
