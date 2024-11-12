@@ -11,7 +11,10 @@ const Topbar = () => {
     <nav className="h-20 w-full flex items-center justify-between bg-white px-6">
       <Image src={logo} alt="logo" height={130} width={130} />
       <div className="relative">
-        <Input className="w-96 absolute -right-10 -bottom-5 rounded-full h-11" />
+        <Input
+          className="w-96 absolute -right-10 -bottom-5 rounded-full h-11 placeholder:text-3xl:start-10"
+          placeholder="Search..."
+        />
       </div>
       <div className="flex items-center space-x-4">
         <Button className="bg-[#3378FE] flex items-center space-x-2 h-10">

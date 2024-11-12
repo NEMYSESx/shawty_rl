@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { AlignJustify, Link, Plus, User } from "lucide-react";
 import React from "react";
 
 const Dashboard = () => {
@@ -9,15 +11,109 @@ const Dashboard = () => {
         <h1 className="font-semibold ml-12 text-6xl">Dashboard</h1>
         <div className="flex">
           <div>
-            <div className="h-[350px] w-[695px] bg-white rounded-2xl ml-12"></div>
+            <div className="h-[350px] w-[695px] bg-white rounded-2xl ml-12 p-10">
+              <div className="flex justify-between h-full">
+                <div>
+                  <div className="flex">
+                    <div className="bg-[#F88D2C] h-12 w-6" />
+                    <p className="font-bold text-3xl ml-3 mt-1">Custom Forms</p>
+                  </div>
+                  <p className="text-6xl mt-2 font-bold ml-10">42</p>
+                  <p className="ml-10 mt-1 font-semibold">Active forms</p>
+                </div>
+                <div className="flex flex-col justify-between">
+                  <div className="bg-slate-200 p-4 w-24 h-20 rounded-lg flex items-center justify-center ml-11">
+                    <AlignJustify className="h-12 w-12" />
+                  </div>
+                  <Button className="bg-[#FFB7B7] h-14 w-36 rounded-xl hover:bg-[#f86868]">
+                    <Plus className="text-[#FF0000] h-12 w-12" />
+                    <span className="text-[#FF0000] text-xl font-semibold">
+                      Create
+                    </span>
+                  </Button>
+                </div>
+              </div>
+            </div>
             <div className="flex">
-              <div className="w-[337px] h-[360px] bg-white rounded-2xl ml-12 mt-5"></div>
-              <div className="w-[337px] h-[360px] bg-white rounded-2xl ml-5 mt-5"></div>
+              <div className="w-[270px] h-[360px] bg-white rounded-2xl ml-12 mt-5 p-10">
+                {" "}
+              </div>
+              <div className="w-[405px] h-[360px] bg-white rounded-2xl ml-5 mt-5 p-10">
+                {" "}
+                <div className="flex justify-between h-full">
+                  <div>
+                    <div className="flex">
+                      <div className="bg-[#F797FF] h-12 w-6" />
+                      <p className="font-bold text-3xl ml-3 mt-1">Bio Link</p>
+                    </div>
+                    <p className="text-6xl mt-2 font-bold ml-10">42</p>
+                    <p className="ml-10 mt-1 font-semibold">Active forms</p>
+                  </div>
+                  <div className="flex flex-col justify-between">
+                    <div className="bg-slate-200 p-4 w-24 h-20 rounded-lg flex items-center justify-center ml-16">
+                      <User className="h-12 w-12" />
+                    </div>
+                    <Button className="bg-[#FFD5E9] h-14 w-36 rounded-xl hover:bg-[#f86868]">
+                      <Plus className="text-[#FF007A] h-12 w-12" />
+                      <span className="text-[#FF007A] text-xl font-semibold">
+                        Bio
+                      </span>
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div>
-            <div className="w-[420px] h-[485px] bg-white rounded-2xl ml-5"></div>
-            <div className="w-[420px] h-[225px] bg-white rounded-2xl ml-5 mt-5"></div>
+            <div className="w-[420px] h-[440px] bg-white rounded-2xl ml-5 p-10">
+              {" "}
+              <div className="flex justify-between h-full">
+                <div>
+                  <div className="flex">
+                    <div className="bg-[#F9FFB7] h-12 w-6" />
+                    <p className="font-bold text-3xl ml-3 mt-1">Short URL</p>
+                  </div>
+                  <p className="text-6xl mt-2 font-bold ml-10">102</p>
+                  <p className="ml-10 mt-1 font-semibold">Total Link created</p>
+                </div>
+                <div className="flex flex-col justify-between">
+                  <div className="bg-slate-200 p-4 w-24 h-20 rounded-lg flex items-center justify-center ml-11">
+                    <Link className="h-12 w-12" />
+                  </div>
+                  <Button className="bg-[#CAFCFF] h-14 w-36 rounded-xl hover:bg-[#f86868]">
+                    <Plus className="text-[#00C6D2] h-12 w-12" />
+                    <span className="text-[#00C6D2] text-xl font-semibold">
+                      Short
+                    </span>
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div className="w-[420px] h-[270px] bg-white rounded-2xl ml-5 mt-5 p-10">
+              {" "}
+              <div className="flex justify-between h-full">
+                <div>
+                  <div className="flex">
+                    <div className="bg-[#BB92FF] h-12 w-6" />
+                    <p className="font-bold text-3xl ml-3 mt-1">Analytics</p>
+                  </div>
+                  <p className="text-6xl mt-2 font-bold ml-10">42</p>
+                  <p className="ml-10 mt-1 font-semibold">Active forms</p>
+                  <div className="flex flex-col justify-between">
+                    <div className="bg-slate-200 p-4 w-24 h-20 rounded-lg flex items-center justify-center ml-11">
+                      <Link className="h-12 w-12" />
+                    </div>
+                    <Button className="bg-[#B5FFB4] h-14 w-36 rounded-xl hover:bg-[#f86868]">
+                      <Plus className="text-[#00B512] h-12 w-12" />
+                      <span className="text-[#00B512] text-xl font-semibold">
+                        Analyze
+                      </span>
+                    </Button>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-end mr-20"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
