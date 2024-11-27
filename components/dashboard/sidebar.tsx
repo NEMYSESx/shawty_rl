@@ -49,7 +49,7 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="w-80 bg-white text-gray-800 h-[732px] flex flex-col shadow-lg">
+    <div className="w-80 bg-white text-gray-800 h-[645px] flex flex-col shadow-lg">
       <div className="flex-1 overflow-y-auto pt-4">
         {routes.map((val, i) => {
           const fullPath = `${log || ""}${val.url}`;
