@@ -73,7 +73,7 @@ const Dashboard = () => {
                       <User className="h-12 w-12" />
                     </div>
                     <Button
-                      className="bg-[#FFD5E9] h-14 w-36 rounded-xl hover:bg-[#FF9CCF]"
+                      className="bg-[#FFD5E9] h-14 w-36 rounded-xl hover:bg-[#FF9CCF] ml-4"
                       onClick={async () => {
                         const id = await getDefaultLoginRedirect();
                         router.push(`${id}/bio`);

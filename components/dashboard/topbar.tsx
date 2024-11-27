@@ -17,7 +17,7 @@ const Topbar = () => {
           placeholder="Search..."
           style={{ paddingLeft: "3rem" }}
         />
-        <Button className="absolute -bottom-4 -right-6">K</Button>
+        <Button className="absolute -bottom-4 -right-6">Ctrl K</Button>
       </div>
       <div className="flex items-center space-x-4">
         <Button className="bg-[#3378FE] flex items-center space-x-2 h-10">

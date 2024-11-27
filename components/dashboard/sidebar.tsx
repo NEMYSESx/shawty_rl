@@ -15,13 +15,14 @@ import { usePathname } from "next/navigation";
 
 const routes = [
   { name: "Home", url: "", logo: <Home className="w-6 h-6" /> },
+  { name: "Forms", url: "/forms", logo: <ClipboardList className="w-6 h-6" /> },
   {
     name: "Url Shortner",
     url: "/url_short",
     logo: <Link2 className="w-6 h-6" />,
   },
   { name: "Bio", url: "/bio", logo: <User className="w-6 h-6" /> },
-  { name: "Forms", url: "/forms", logo: <ClipboardList className="w-6 h-6" /> },
+
   {
     name: "Analytics",
     url: "/analytics",
@@ -48,7 +49,7 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="w-80 bg-white text-gray-800 h-screen flex flex-col shadow-lg">
+    <div className="w-80 bg-white text-gray-800 h-[732px] flex flex-col shadow-lg">
       <div className="flex-1 overflow-y-auto pt-4">
         {routes.map((val, i) => {
           const fullPath = `${log || ""}${val.url}`;
